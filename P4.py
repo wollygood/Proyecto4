@@ -1,8 +1,11 @@
+#Julian Benavides Sanchez
+#B30955
+
 import numpy as np
 
 def modulador(bits, fc, mpp):
     '''Un método que simula el esquema de 
-    modulación digital BPSK.
+    modulación digital 16-QAM.
 
     :param bits: Vector unidimensional de bits
     :param fc: Frecuencia de la portadora en Hz
@@ -100,7 +103,7 @@ def canal_ruidoso(senal_Tx, Pm, SNR):
 
 def demodulador(senal_Rx, portadora_Q, mpp):
     '''Un método que simula un bloque demodulador
-    de señales, bajo un esquema BPSK. El criterio
+    de señales, bajo un esquema 16-QAM. El criterio
     de demodulación se basa en decodificación por 
     detección de energía.
 
@@ -187,7 +190,7 @@ dimensiones = imagen_Tx.shape
 # 2. Codificar los pixeles de la imagen
 bits_Tx = rgb_a_bit(imagen_Tx)
 
-# 3. Modular la cadena de bits usando el esquema BPSK
+# 3. Modular la cadena de bits usando el esquema 16-QAM
 senal_Tx, Pm, portadora_I, portadora_Q, moduladora_b1, moduladora_b2 = modulador(bits_Tx, fc, mpp) 
 
 # 4. Se transmite la señal modulada, por un canal ruidoso
@@ -234,7 +237,7 @@ moduladora_T= moduladora_b1 - moduladora_b2
 ax1.plot(moduladora_T[0:600], color='r', lw=2) 
 ax1.set_ylabel('$b(t)$')
 
-# La señal modulada por BPSK
+# La señal modulada por 16-QAM
 ax2.plot(senal_Tx[0:600], color='g', lw=2) 
 ax2.set_ylabel('$s(t)$')
 
